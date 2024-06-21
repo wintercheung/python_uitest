@@ -7,6 +7,10 @@ from selenium import webdriver
 
 
 def browser_options():
+    """
+    浏览器的相关配置
+    :return: 配置 options
+    """
     # 创建 chrome 的配置项
     options = webdriver.ChromeOptions()
     options.page_load_strategy = "eager"  # 页面加载策略
