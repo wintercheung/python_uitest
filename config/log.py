@@ -3,7 +3,7 @@
 # @Author  : winter cheung
 # @Time    : 2024/6/21 下午12:56
 
-from logging import config
+from logging import config, getLogger
 
 
 def get_logger(name):
@@ -12,5 +12,5 @@ def get_logger(name):
     :param name: 日志配置文件名
     :return: 加载配置
     """
-    config.fileConfig(name, disable_existing_loggers=False)
-    return get_logger()
+    config.fileConfig(name)
+    return getLogger()

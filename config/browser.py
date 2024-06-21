@@ -4,6 +4,7 @@
 # @Time    : 2024/6/21 下午12:46
 
 from selenium import webdriver
+from webdriver_manager.chrome import ChromeDriverManager
 
 
 def browser_options():
@@ -30,3 +31,20 @@ def browser_options():
     options.add_experimental_option('excludeSwitches', ['enable-logging'])  # 去掉控制台多余信息
 
     return options
+
+
+def open_browser(brower_type):
+    """
+    打开浏览器
+    :param brower_type:
+    :return:
+    """
+    browser = {'chrome': ['Chrome', 'chrome', 'cc', '谷歌'],
+               'ie': ['ie', 'Ie', 'IE']}
+    if brower_type in browser['chrome']:
+        driver = webdriver.Chrome(options=browser_options())
+    elif brower_type in browser['ie']:
+        driver = webdriver.Ie()
+    else:
+        driver = webdriver.Chrome(ChromeDriverManager().install())
+    return driver
